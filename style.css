@@ -1,0 +1,997 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: greenyellow;
+    font-family: Arial, sans-serif;
+}
+
+/* Header container */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(15px, 3vw, 30px);
+    /* responsive padding */
+    border: 2px solid white;
+    border-radius: 12px;
+    width: 75%;
+    margin: 40px auto;
+    flex-wrap: wrap;
+    /* allow wrapping on smaller screens */
+    gap: 20px;
+}
+
+/* Left side title text */
+.title-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title-text p {
+    color: white;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    /* responsive */
+    font-weight: bold;
+    line-height: 1.3;
+    letter-spacing: 2px;
+}
+
+/* Scoreboard on right */
+.score-board {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* wrap if not enough space */
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Score cards */
+.score {
+    background: #fff;
+    color: #000;
+    padding: clamp(10px, 2vw, 20px) clamp(15px, 3vw, 30px);
+    /* responsive padding */
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 110px;
+    flex: 1 1 auto;
+    max-width: 160px;
+    /* flexible but balanced */
+}
+
+/* Label text */
+.score p {
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    font-weight: bold;
+    margin-bottom: 5px;
+    background: transparent;
+}
+
+/* Number text */
+.score h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    /* scales with screen */
+    margin: 0;
+    font-weight: bold;
+    background: transparent;
+}
+
+/* 📱 Mobile layout */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .score-board {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .score {
+        flex: 0 1 45%;
+        /* take ~half width each on mobile */
+    }
+}
+
+/* 📲 Tablet layout */
+@media (min-width: 601px) and (max-width: 900px) {
+    .header {
+        width: 90%;
+        /* use more width on tablets */
+    }
+
+    .score {
+        flex: 0 1 40%;
+        /* bigger boxes */
+    }
+}
+
+/* 💻 Large desktop */
+@media (min-width: 1200px) {
+    .header {
+        width: 70%;
+        /* tighter look on big screens */
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Triangle container */
+.triangle-container {
+    position: relative;
+    width: 350px;
+    height: 300px;
+    margin: 60px auto;
+}
+
+/* Circle (common styles) */
+.choice {
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 12px solid;
+    position: relative;
+    z-index: 1;
+    /* keeps circles above lines */
+    cursor: pointer;
+}
+
+/* Icon inside circle */
+.choice img {
+    width: 60%;
+    height: 60%;
+}
+
+/* Rock (top-left) */
+.choice-stone {
+    position: absolute;
+    top: 0;
+    left: 40px;
+}
+
+.choice-stone .choice {
+    border-color: #2196f3;
+    /* blue */
+}
+
+/* Scissors (top-right) */
+.choice-scissor {
+    position: absolute;
+    top: 0;
+    right: 40px;
+}
+
+.choice-scissor .choice {
+    border-color: #9c27b0;
+    /* purple */
+}
+
+/* Paper (bottom-center) */
+.choice-paper {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.choice-paper .choice {
+    border-color: #ff9800;
+    /* orange */
+}
+
+/* Lines (connect circle edges) */
+.line {
+    position: absolute;
+    height: 10px;
+    background: #333;
+    z-index: 0;
+    /* behind circles */
+}
+
+.line1 {
+    /* Rock → Scissors (horizontal top line) */
+    top: 50px;
+    left: 100px;
+    width: 150px;
+}
+
+.line2 {
+    /* Rock → Paper (left diagonal) */
+    top: 105px;
+    left: 40px;
+    width: 150px;
+    transform: rotate(60deg);
+}
+
+.line3 {
+    /* Scissors → Paper (right diagonal) */
+    top: 105px;
+    right: 40px;
+    width: 150px;
+    transform: rotate(-60deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-buttons {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 15px;
+}
+
+
+
+/* Position NEXT button to the left of RULES button */
+.next-btn {
+    position: absolute;
+    bottom: 60px;
+    right: 150px;
+    background: greenyellow;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    background: #adff2f; /* Darker green */
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.next-btn:active {
+    transform: scale(0.98);
+}
+
+
+
+
+
+
+
+/* Rules button */
+.rules-btn {
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    background: greenyellow;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.rules-btn:hover {
+    background: #adff2f; /* Darker green */
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.rules-btn:active {
+    transform: scale(0.98);
+}
+
+/* Rules box */
+.rules-box {
+    position: absolute;
+    bottom: 130px;
+    right: 50px;
+    width: 300px;
+    background: #004400;
+    /* dark green */
+    color: white;
+    border: 8px solid white;
+    border-radius: 10px;
+    padding: 20px;
+    display: none;
+    /* hidden by default */
+    z-index: 10;
+}
+
+/* Rules header */
+.rules-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.rules-header h2 {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    /* place it relative to .rules-box */
+    top: -45px;
+    /* move slightly outside the box */
+    right: -45px;
+    background: rgba(255, 0, 0, 0.89);
+    /* red background */
+    font-weight: 50px;
+    color: white;
+    /* white "X" */
+    font-size: 3.8rem;
+    border-radius: 50%;
+    /* round shape */
+    width: 50px;
+    /* size of the circle */
+    height: 50px;
+    border: 4px solid white;
+    /* white border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    /* ensure it’s above */
+}
+
+
+/* Rules list */
+.rules-box ul {
+    padding-left: 20px;
+}
+
+.rules-box li {
+    margin-bottom: 10px;
+    list-style-type: square;
+}
+
+.rules-box li::marker {
+    color: #FFD700;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
+/* Result container */
+.result-container {
+    /* ⬅️ NEW */
+    display: none;
+    /* hidden by default */
+    justify-content: center;
+    /* spread user + pc picked */
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+    gap: 40px;
+    /* ⬅️ add spacing between blocks */
+}
+
+/* Each picked block */
+.picked {
+    /* ⬅️ NEW */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Circles in result screen */
+.result-choice {
+    /* ⬅️ NEW */
+    width: 150px;
+    /* bigger circle */
+    height: 150px;
+    background: white;
+    border-radius: 50%;
+    border: 12px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.result-choice img {
+    /* ⬅️ NEW */
+    width: 70%;
+    height: 70%;
+}
+
+Glow for winner
+
+/* Winner effect with animated ripple */
+.result-choice.winner {
+    position: relative;
+    animation: winner-pulse 3s infinite;
+}
+
+/* Main winner animation for the circle itself */
+@keyframes winner-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px 5px rgba(76, 175, 80, 0.3);
+    }
+}
+
+/* Ripple rings using pseudo-elements */
+.result-choice.winner::before,
+.result-choice.winner::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 20px solid;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* First ripple ring */
+.result-choice.winner::before {
+    width: 200%;
+    height: 200%;
+    border-color: rgba(76, 175, 80, 0.6);
+    animation: ripple-1 3.5s infinite;
+}
+
+/* Second ripple ring */
+.result-choice.winner::after {
+    width: 300%;
+    height: 300%;
+    border-color: rgba(76, 175, 80, 0.4);
+    animation: ripple-2 3.5s infinite 0.5s;
+}
+
+/* Third ripple ring (requires additional span element) */
+.result-choice.winner .ripple-3 {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400%;
+    height: 400%;
+    border-radius: 50%;
+    border: 15px solid rgba(76, 175, 80, 0.3);
+    pointer-events: none;
+    z-index: -1;
+    animation: ripple-3 3.5s infinite 1s;
+}
+
+/* Ripple animations */
+@keyframes ripple-1 {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        border-width: 20px;
+    }
+
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+        border-width: 8px;
+    }
+}
+
+@keyframes ripple-2 {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        border-width: 18px;
+    }
+
+    100% {
+        width: 300%;
+        height: 300%;
+        opacity: 0;
+        border-width: 5px;
+    }
+}
+
+@keyframes ripple-3 {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        border-width: 15px;
+    }
+
+    100% {
+        width: 400%;
+        height: 400%;
+        opacity: 0;
+        border-width: 2px;
+    }
+}
+
+/* Alternative: More intense ripple effect */
+.result-choice.winner.intense {
+    animation: intense-winner 1.5s infinite;
+}
+
+@keyframes intense-winner {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 0 0 rgba(76, 175, 80, 0.8),
+            0 0 0 15px rgba(76, 175, 80, 0.6),
+            0 0 0 30px rgba(76, 175, 80, 0.4),
+            0 0 0 45px rgba(76, 175, 80, 0.2);
+    }
+
+    25% {
+        transform: scale(1.1);
+        box-shadow:
+            0 0 0 15px rgba(76, 175, 80, 0.6),
+            0 0 0 35px rgba(76, 175, 80, 0.4),
+            0 0 0 55px rgba(76, 175, 80, 0.2),
+            0 0 0 80px rgba(76, 175, 80, 0.1);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow:
+            0 0 0 20px rgba(76, 175, 80, 0.4),
+            0 0 0 45px rgba(76, 175, 80, 0.2),
+            0 0 0 70px rgba(76, 175, 80, 0.1),
+            0 0 0 100px rgba(76, 175, 80, 0);
+    }
+
+    75% {
+        transform: scale(1.02);
+        box-shadow:
+            0 0 0 10px rgba(76, 175, 80, 0.6),
+            0 0 0 30px rgba(76, 175, 80, 0.3),
+            0 0 0 50px rgba(76, 175, 80, 0.1),
+            0 0 0 70px rgba(76, 175, 80, 0);
+    }
+}
+
+/* Continuous ripple effect (keeps going) */
+.result-choice.winner.continuous::before,
+.result-choice.winner.continuous::after {
+    animation-iteration-count: infinite;
+}
+
+/* For mobile responsiveness */
+@media (max-width: 600px) {
+    .result-choice.winner::before {
+        width: 180%;
+        height: 180%;
+    }
+
+    .result-choice.winner::after {
+        width: 260%;
+        height: 260%;
+    }
+
+    .result-choice.winner .ripple-3 {
+        width: 340%;
+        height: 340%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Middle result message */
+.result-message {
+    /* ⬅️ NEW */
+    color: white;
+    text-align: center;
+    max-width: 200px;
+}
+
+.result-message h2 {
+    font-size: 1.8rem;
+    /* bigger message */
+    margin-bottom: 20px;
+}
+
+.result-message button {
+    background: white;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.result-message button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.result-message button:active {
+    transform: scale(0.98);
+}
+
+
+
+
+/* Hurray Page */
+/* Hurray Page */
+.hurray-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    gap: 10px;
+    color: white;
+    position: relative;
+    padding: 40px;
+}
+
+.trophy-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 500px;
+    height: 400px;
+}
+
+.trophy {
+    font-size: 10rem;
+    color: #FFD700;
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
+    animation: bounce 2s infinite;
+    z-index: 2;
+    position: relative;
+}
+
+/* Stars positioned around trophy */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.stars .star {
+    position: absolute;
+    font-size: 5rem;
+    color: #FFFFFF;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+    /* All stars start from center (trophy position) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Burst animation for each star */
+.star-1 {
+    font-size: 6rem;
+    animation: burst-top 3s infinite ease-out;
+}
+
+.star-2 {
+    font-size: 4.5rem;
+    animation: burst-top-left 3s infinite ease-out 0.3s;
+}
+
+.star-3 {
+    font-size: 7rem;
+    animation: burst-top-right 3s infinite ease-out 0.6s;
+}
+
+.star-4 {
+    font-size: 8rem;
+    animation: burst-bottom-left 3s infinite ease-out 0.9s;
+}
+
+.star-5 {
+    font-size: 5.5rem;
+    animation: burst-bottom-right 3s infinite ease-out 1.2s;
+}
+
+.star-6 {
+    font-size: 6.5rem;
+    animation: burst-bottom 3s infinite ease-out 1.5s;
+}
+
+/* Burst animations - stars move from center to their positions */
+@keyframes burst-top {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -250px) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes burst-top-left {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-200px, -180px) scale(1) rotate(-360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes burst-top-right {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(150px, -180px) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes burst-bottom-left {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-230px, 100px) scale(1) rotate(-360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes burst-bottom-right {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(180px, 100px) scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes burst-bottom {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, 170px) scale(1) rotate(-360deg);
+        opacity: 1;
+    }
+}
+
+/* Bounce animation for trophy */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+/* Title + Text */
+.hurray-container h1 {
+    font-size: 4.5rem;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hurray-container p {
+    font-size: 2.5rem;
+    margin: 10px 0 40px 0;
+    font-weight: 500;
+    letter-spacing: 4px;
+    opacity: 0.95;
+}
+
+/* Button styling */
+.hurray-container button {
+    background: white;
+    color: #6B9C3C;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.hurray-container button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    
+}
+
+
+.hurray-container button:active {
+    transform: scale(0.98);
+}
+
+
+
+
+
+
+
+.result-choice[data-choice="stone"] {
+    border-color: #2196f3;
+}
+
+/* blue */
+.result-choice[data-choice="scissors"] {
+    border-color: #9c27b0;
+}
+
+/* purple */
+.result-choice[data-choice="paper"] {
+    border-color: #ff9800;
+}
+
+/* orange */
+
+
+
+
+/* Hover effect for choice icons */
+.choice:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.choice:active {
+    transform: scale(0.95);
+}

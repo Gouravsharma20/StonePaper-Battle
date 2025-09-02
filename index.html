@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="title-text">
+            <p>STONE</p>
+            <p>PAPER</p>
+            <p>SCISSORS</p>
+        </div>
+
+        <div class="score-board">
+            <div class="score">
+                <p>COMPUTER SCORE</p>
+                <h2 id="computer-score">0</h2>
+            </div>
+            <div class="score">
+                <p>YOUR SCORE</p>
+                <h2 id="USER-score">0</h2>
+            </div>
+        </div>
+    </div>
+    <div class="triangle-container">
+        <div class=" choice-stone">
+            <div class="choice" id="stone">
+                <img src="./images/stoneIcon.png">
+            </div>
+
+        </div>
+        <div class="choice-paper">
+            <div class="choice" id="paper">
+                <img src="./images/paperIcon.png">
+            </div>
+
+        </div>
+        <div class="choice-scissor">
+            <div class="choice" id="scissors">
+                <img src="./images/scissorsIcon.png">
+            </div>
+
+        </div>
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </div>
+    </div>
+
+
+
+
+    <!-- Result Section -->
+    <div class="result-container" id="resultContainer" style="display: none;">
+        <div class="picked">
+            <h3>YOU PICKED</h3>
+            <div class="choice result-choice" id="user-picked"></div>
+        </div>
+
+        <div class="result-message">
+            <h2 id="result-text">RESULT HERE</h2>
+            <button id="playAgainBtn">PLAY AGAIN</button>
+        </div>
+
+        <div class="picked">
+            <h3>PC PICKED</h3>
+            <div class="choice result-choice" id="pc-picked"></div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Rules Button -->
+    <div class="footer-buttons">
+        <button class="next-btn" id="nextBtn" style="display: none;">NEXT</button>
+        <button class="rules-btn" id="rulesBtn">RULES</button>
+
+
+
+    </div>
+
+
+    <!-- Rules Box -->
+    <div class="rules-box" id="rulesBox">
+        <div class="rules-header">
+            <h2>Game Rules</h2>
+            <span class="close-btn" id="closeBtn">&times;</span>
+        </div>
+        <ul>
+            <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+            <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper,
+                scissors.”</li>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time.</li>
+            <li>If both players lay down the same hand, each player lays down another hand.</li>
+        </ul>
+    </div>
+
+
+
+
+
+    <!-- Hurray Page -->
+    <div class="hurray-container" id="hurrayContainer" style="display: none;">
+        <div class="trophy-wrapper">
+            <div class="stars">
+                <span class="star star-1">⭐</span>
+                <span class="star star-2">⭐</span>
+                <span class="star star-3">⭐</span>
+                <span class="star star-4">⭐</span>
+                <span class="star star-5">⭐</span>
+                <span class="star star-6">⭐</span>
+            </div>
+            <div class="trophy">🏆</div>
+        </div>
+        <h1>HURRAY!!</h1>
+        <p>YOU WON THE GAME</p>
+        <button id="playAgainFromHurray">PLAY AGAIN</button>
+    </div>
+
+
+    <!-- Hurray Page -->
+    <!-- <div class="hurray-container" id="hurrayContainer" style="display: none;">
+        <div class="trophy-wrapper">
+            <div class="trophy">🏆</div>
+            <div class="stars">
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+                <span>⭐</span>
+            </div>
+        </div>
+        <h1>HURRAY!!</h1>
+        <p>YOU WON THE GAME</p>
+        <button id="playAgainFromHurray">PLAY AGAIN</button>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+
+
+
+
+
+</body>
+
+</html>
