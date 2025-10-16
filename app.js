@@ -174,7 +174,7 @@ document.getElementById("playAgainFromHurray").addEventListener("click", () => {
     triangleContainer.style.display = "block";
     header.style.display = "flex";
     document.querySelector(".footer-buttons").style.display = "flex";
-    rulesBox.style.display = "none";
+    rulesBox.style.display = "none";    
     gameActive = true;
 });
 
