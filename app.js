@@ -149,9 +149,11 @@ playAgainBtn.addEventListener("click", () => {
 nextbtn.addEventListener("click", () => {
     resultContainer.style.display = "none";
     document.getElementById("hurrayContainer").style.display = "flex";
-    nextbtn.style.display = "none";
     header.style.display = "none";
+    document.querySelector(".footer-buttons").style.display = "flex";
+    nextbtn.style.display = "none";
 });
+
 
 
 rulesBtn.addEventListener("click", () => {
@@ -169,9 +171,10 @@ closeBtn.addEventListener("click", () => {
 
 document.getElementById("playAgainFromHurray").addEventListener("click", () => {
     document.getElementById("hurrayContainer").style.display = "none";
-    triangleContainer.style.display = "block"; // go back to choices
+    triangleContainer.style.display = "block";
     header.style.display = "flex";
     document.querySelector(".footer-buttons").style.display = "flex";
+    rulesBox.style.display = "none";
     gameActive = true;
 });
 

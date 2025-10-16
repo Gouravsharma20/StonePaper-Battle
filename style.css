@@ -304,6 +304,7 @@ body {
 /* Rules button */
 .rules-btn {
     position: absolute;
+    z-index: 10;
     bottom: 60px;
     right: 20px;
     background: greenyellow;
@@ -715,7 +716,6 @@ Glow for winner
 
 
 /* Hurray Page */
-/* Hurray Page */
 .hurray-container {
     display: none;
     flex-direction: column;
@@ -729,6 +729,7 @@ Glow for winner
     padding: 40px;
 }
 
+/* Trophy area */
 .trophy-wrapper {
     position: relative;
     display: flex;
@@ -739,64 +740,68 @@ Glow for winner
     height: 400px;
 }
 
-.trophy {
-    font-size: 10rem;
-    color: #FFD700;
-    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.5));
-    animation: bounce 2s infinite;
+/* ✅ Star stays above the cup */
+.trophyStar {
+    position: absolute;
     z-index: 2;
-    position: relative;
+    width: 600px;
+    height: auto;
+    padding-bottom: 200px;
 }
 
-/* Stars positioned around trophy */
-.stars {
+.trophyCup {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+    z-index: 1;
+    width: 250px;
+    height: auto;
 }
 
-.stars .star {
-    position: absolute;
-    font-size: 5rem;
-    color: #FFFFFF;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
-    /* All stars start from center (trophy position) */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* Headings & text */
+.hurray-container h1 {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: white;
 }
 
-/* Burst animation for each star */
-.star-1 {
-    font-size: 6rem;
-    animation: burst-top 3s infinite ease-out;
+.hurray-container p {
+    font-size: 2rem;
+    margin: 10px 0 40px 0;
+    font-weight: 500;
+    letter-spacing: 4px;
+    opacity: 0.95;
 }
 
-.star-2 {
-    font-size: 4.5rem;
-    animation: burst-top-left 3s infinite ease-out 0.3s;
+/* Play again button */
+.hurray-container button {
+    background: white;
+    color: #6B9C3C;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
 }
 
-.star-3 {
-    font-size: 7rem;
-    animation: burst-top-right 3s infinite ease-out 0.6s;
+.hurray-container button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.star-4 {
-    font-size: 8rem;
-    animation: burst-bottom-left 3s infinite ease-out 0.9s;
+.hurray-container button:active {
+    transform: scale(0.98);
 }
 
-.star-5 {
-    font-size: 5.5rem;
-    animation: burst-bottom-right 3s infinite ease-out 1.2s;
-}
 
-.star-6 {
-    font-size: 6.5rem;
-    animation: burst-bottom 3s infinite ease-out 1.5s;
-}
+
+
 
 /* Burst animations - stars move from center to their positions */
 @keyframes burst-top {
