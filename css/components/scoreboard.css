@@ -1,0 +1,35 @@
+.score-board {
+    display: flex;
+    gap: var(--spacing-medium);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.score {
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: clamp(10px, 2vw, 20px) clamp(15px, 3vw, 30px);
+    border-radius: var(--border-radius-default);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 110px;
+    flex: 1 1 auto;
+    max-width: 160px;
+}
+
+.score p {
+    font-size: clamp(0.7rem, 1.2vw, 1rem);
+    font-weight: bold;
+    margin-bottom: 5px;
+    background: transparent;
+}
+
+.score h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    margin: 0;
+    font-weight: bold;
+    background: transparent;
+}

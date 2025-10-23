@@ -1,0 +1,70 @@
+
+
+@media (min-width: 601px) {
+  /* header becomes constrained and gets a nice centered width */
+  .header {
+    width: 90%;
+    max-width: 1100px;
+    padding: 16px 20px;
+    margin: 20px;
+  }
+
+  .score {
+    flex: 0 1 40%;
+  }
+
+  /* make ripples slightly larger on larger screens */
+  .result-choice.winner::before {
+    width: 160%;
+    height: 160%;
+  }
+  .result-choice.winner::after {
+    width: 220%;
+    height: 220%;
+  }
+  .result-choice.winner .ripple-3 {
+    width: 300%;
+    height: 300%;
+  }
+
+  .hurray-container {
+    padding: 30px;
+  }
+
+  .trophy-wrapper {
+    width: 350px;
+    height: 280px;
+    margin-bottom: calc(var(--spacing-medium) * 0.8);
+  }
+
+  .trophyStar {
+    width: 490px;
+    padding-bottom: 140px;
+  }
+
+  .trophyCup {
+    width: 175px;
+    padding-top: 84px;
+  }
+
+  .hurray-container h1 {
+    font-size: 3.2rem;
+    letter-spacing: 6px;
+  }
+
+  .hurray-container p {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .hurray-container button {
+    padding: 13px 32px;
+    font-size: 1rem;
+    letter-spacing: 1.75px;
+  }
+
+
+}
+
+
+

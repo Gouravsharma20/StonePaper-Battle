@@ -1,0 +1,33 @@
+.next-btn {
+    position: absolute;
+    bottom: 60px;
+    right: 150px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px var(--spacing-medium);
+    border-radius: 10px;
+    border: 2px solid var(--color-white);
+    cursor: pointer;
+    display: none;
+    transition: var(--transition-default);
+}
+
+.next-btn:hover {
+    background: #adff2f;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.next-btn:active {
+    transform: scale(0.98);
+}
+
+.footer-buttons.next-visible .rules-btn {
+    right: 150px;
+}
+
+.footer-buttons.next-visible .next-btn {
+    right: var(--spacing-medium);
+}

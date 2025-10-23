@@ -1,0 +1,64 @@
+.choice {
+    width: 100px;
+    height: 100px;
+    background: var(--color-white);
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 12px solid;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.choice img {
+    width: 60%;
+    height: 60%;
+}
+
+/* Stone - Top Left */
+.choice-stone {
+    position: absolute;
+    top: 0;
+    left: 40px;
+}
+
+.choice-stone .choice {
+    border-color: var(--color-stone);
+}
+
+/* Scissors - Top Right */
+.choice-scissor {
+    position: absolute;
+    top: 0;
+    right: 40px;
+}
+
+.choice-scissor .choice {
+    border-color: var(--color-scissors);
+}
+
+/* Paper - Bottom Center */
+.choice-paper {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.choice-paper .choice {
+    border-color: var(--color-paper);
+}
+
+/* Hover & Active States */
+.choice:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.choice:active {
+    transform: scale(0.95);
+}

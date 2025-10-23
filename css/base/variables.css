@@ -1,0 +1,32 @@
+:root {
+    /* Colors */
+    --color-primary: greenyellow;
+    --color-dark-green: #004400;
+    --color-white: white;
+    --color-black: #000;
+    --color-gray: #333;
+    --color-light-gray: #f0f0f0;
+    
+    /* Choice Colors */
+    --color-stone: #0074B6;
+    --color-scissors: #BD00FF;
+    --color-paper: #FFA943;
+    
+    /* Winner Colors */
+    --color-winner-green: #2E9A25;
+    --color-winner-light: rgba(76, 175, 80, 0.7);
+    
+    /* Sizing */
+    --border-radius-default: 8px;
+    --border-radius-large: 12px;
+    --border-radius-full: 50%;
+    
+    /* Spacing */
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+    --spacing-xl: 60px;
+    
+    /* Transitions */
+    --transition-default: all 0.3s ease;
+}

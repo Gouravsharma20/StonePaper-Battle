@@ -1,0 +1,30 @@
+.result-message {
+    color: var(--color-white);
+    text-align: center;
+    max-width: 200px;
+}
+
+.result-message h2 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-medium);
+}
+
+.result-message button {
+    background: var(--color-white);
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: var(--border-radius-default);
+    cursor: pointer;
+    transition: var(--transition-default);
+}
+
+.result-message button:hover {
+    background: var(--color-light-gray);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.result-message button:active {
+    transform: scale(0.98);
+}

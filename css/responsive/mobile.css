@@ -1,0 +1,174 @@
+/* ========== Base / Mobile-first (default) ========== */
+/* Make header centered and responsive */
+.header {
+  width: 90%;
+  max-width: 1000px;    /* prevents it getting too wide on tall narrow screens */
+  margin: 40px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px;
+  box-sizing: border-box;
+}
+
+/* Footer buttons: place on the right by default using flexbox */
+.footer-buttons {
+  display: flex;
+  justify-content: flex-end; /* buttons appear at right edge */
+  align-items: center;
+  gap: 12px;                 /* space between RULES and NEXT when both present */
+  padding-right: 20px;      /* adjust if you want them slightly inset from edge */
+  height: 56px;
+  box-sizing: border-box;
+}
+
+/* NEXT hidden by default */
+.next-btn {
+  display: none;
+}
+
+/* RULES visible by default and will sit at the right */
+.rules-btn {
+  display: inline-block;
+}
+
+/* result winner ripple sizes (scaled for small screens) */
+.result-choice.winner::before {
+  width: 140%;
+  height: 140%;
+}
+.result-choice.winner::after {
+  width: 200%;
+  height: 200%;
+}
+.result-choice.winner .ripple-3 {
+  width: 260%;
+  height: 260%;
+}
+
+/* Example small-screen layout tweaks (you may already have these) */
+.header .title-text {
+  font-size: 18px;
+  line-height: 1;
+}
+
+
+
+
+.hurray-container {
+  padding: 20px;
+}
+
+.trophy-wrapper {
+  width: 200px;
+  height: 160px;
+  margin-bottom: calc(var(--spacing-medium) * 0.6);
+}
+
+.trophyStar {
+  width: 280px;
+  padding-bottom: 80px;
+}
+
+.trophyCup {
+  width: 100px;
+  padding-top: 48px;
+}
+
+.hurray-container h1 {
+  font-size: 2rem;
+  letter-spacing: 4px;
+}
+
+.hurray-container p {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.hurray-container button {
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+}
+
+
+
+@media (max-width: 480px) {
+  /* Reduce score board sizes */
+  .score-board {
+    gap: 12px;
+  }
+
+  .score {
+    flex: 0 1 35%;
+  }
+
+  .score p {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+
+  .score h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Reduce header padding */
+  .header {
+    padding: 12px 12px;
+  }
+
+  .header .title-text {
+    font-size: 14px;
+  }
+
+  .header .title-text p {
+    font-size: 14px;
+  }
+
+  
+
+  .choice img {
+    width: 70%;
+    height: 70%;
+    /* object-fit: cover; */
+  }
+
+  /* Reduce result choice circle sizes */
+  .result-choice {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .picked h3 {
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+  }
+
+  .picked {
+    gap: 8px;
+  }
+
+  /* Reduce result message */
+  .result-message {
+    max-width: 120px;
+    gap: 8px;
+  }
+
+  .result-message h2 {
+    font-size: 1rem;
+    margin: 0;
+    margin-bottom: 4px;
+  }
+
+  .result-message button {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Adjust result container spacing */
+  .result-container {
+    gap: 12px;
+    padding: 16px;
+  }
+}

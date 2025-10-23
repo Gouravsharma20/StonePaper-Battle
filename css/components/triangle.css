@@ -1,0 +1,6 @@
+.triangle-container {
+    position: relative;
+    width: 350px;
+    height: 300px;
+    margin: var(--spacing-xl) auto;
+}

@@ -1,0 +1,26 @@
+.line {
+    position: absolute;
+    height: 10px;
+    background: var(--color-gray);
+    z-index: 0;
+}
+
+.line1 {
+    top: 50px;
+    left: 100px;
+    width: 150px;
+}
+
+.line2 {
+    top: 105px;
+    left: 40px;
+    width: 150px;
+    transform: rotate(60deg);
+}
+
+.line3 {
+    top: 105px;
+    right: 40px;
+    width: 150px;
+    transform: rotate(-60deg);
+}

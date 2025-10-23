@@ -1,146 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissor Game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rock Paper Scissor Game</title>
+
+  <!-- Base -->
+  <link rel="stylesheet" href="./css/base/reset.css" />
+  <link rel="stylesheet" href="./css/base/variables.css" />
+
+  <!-- Components -->
+  <link rel="stylesheet" href="./css/components/header.css" />
+  <link rel="stylesheet" href="./css/components/scoreboard.css" />
+  <link rel="stylesheet" href="./css/components/triangle.css" />
+  <link rel="stylesheet" href="./css/components/choices.css" />
+  <link rel="stylesheet" href="./css/components/lines.css" />
+  <link rel="stylesheet" href="./css/components/result-container.css" />
+  <link rel="stylesheet" href="./css/components/result-message.css" />
+  <link rel="stylesheet" href="./css/components/rules.css" />
+  <link rel="stylesheet" href="./css/components/buttons.css" />
+  <link rel="stylesheet" href="./css/components/hurray.css" />
+
+  <!-- Animations -->
+  <link rel="stylesheet" href="./css/animations/winner-animations.css" />
+  <link rel="stylesheet" href="./css/animations/burst-animations.css" />
+  <link rel="stylesheet" href="./css/animations/bounce-animations.css" />
+
+  <!-- Responsive (mobile-first) -->
+  <link rel="stylesheet" href="./css/responsive/mobile.css" />
+  <link rel="stylesheet" href="./css/responsive/tablet.css" media="(min-width:600px)" />
+  <link rel="stylesheet" href="./css/responsive/desktop.css" media="(min-width:1024px)" />
 </head>
 
 <body>
 
-    <div class="header">
-        <div class="title-text">
-            <p>STONE</p>
-            <p>PAPER</p>
-            <p>SCISSORS</p>
-        </div>
-
-        <div class="score-board">
-            <div class="score">
-                <p>COMPUTER SCORE</p>
-                <h2 id="computer-score">0</h2>
-            </div>
-            <div class="score">
-                <p>YOUR SCORE</p>
-                <h2 id="USER-score">0</h2>
-            </div>
-        </div>
-    </div>
-    <div class="triangle-container">
-        <div class=" choice-stone">
-            <div class="choice" id="stone">
-                <img src="./images/stoneIcon.png">
-            </div>
-
-        </div>
-        <div class="choice-paper">
-            <div class="choice" id="paper">
-                <img src="./images/paperIcon.png">
-            </div>
-
-        </div>
-        <div class="choice-scissor">
-            <div class="choice" id="scissors">
-                <img src="./images/scissorsIcon.png">
-            </div>
-
-        </div>
-        <div class="line line1"></div>
-        <div class="line line2"></div>
-        <div class="line line3"></div>
+  <!-- header -->
+  <div class="header">
+    <div class="title-text">
+      <p>STONE</p>
+      <p>PAPER</p>
+      <p>SCISSORS</p>
     </div>
 
+    <div class="score-board">
+      <div class="score">
+        <p>COMPUTER SCORE</p>
+        <h2 id="computer-score">0</h2>
+      </div>
+      <div class="score">
+        <p>YOUR SCORE</p>
+        <!-- use lowercase id for consistency -->
+        <h2 id="user-score">0</h2>
+      </div>
+    </div>
+  </div>
 
-
-
-    <!-- Result Section -->
-    <div class="result-container" id="resultContainer" style="display: none;">
-        <div class="picked">
-            <h3>YOU PICKED</h3>
-            <div class="choice result-choice" id="user-picked"></div>
-        </div>
-
-        <div class="result-message">
-            <h2 id="result-text">RESULT HERE</h2>
-            <button id="playAgainBtn">PLAY AGAIN</button>
-        </div>
-
-        <div class="picked">
-            <h3>PC PICKED</h3>
-            <div class="choice result-choice" id="pc-picked"></div>
-        </div>
+  <!-- game triangle -->
+  <div class="triangle-container">
+    <div class="choice-stone">
+      <div class="choice" id="stone">
+        <img src="./images/stoneIcon.png" alt="Stone">
+      </div>
     </div>
 
-
-
-
-
-    <!-- Rules Button -->
-    <div class="footer-buttons">
-        <button class="next-btn" id="nextBtn" style="display: none;">NEXT</button>
-        <button class="rules-btn" id="rulesBtn">RULES</button>
+    <div class="choice-paper">
+      <div class="choice" id="paper">
+        <img src="./images/paperIcon.png" alt="Paper">
+      </div>
     </div>
 
-
-    <!-- Rules Box -->
-    <div class="rules-box" id="rulesBox" style="display: none;">
-        <div class="rules-header">
-            <h2>Game Rules</h2>
-            <span class="close-btn" id="closeBtn">&times;</span>
-        </div>
-        <ul>
-            <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
-            <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper,
-                scissors.”</li>
-            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time.</li>
-            <li>If both players lay down the same hand, each player lays down another hand.</li>
-        </ul>
+    <div class="choice-scissor">
+      <div class="choice" id="scissors">
+        <img src="./images/scissorsIcon.png" alt="Scissors">
+      </div>
     </div>
 
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+  </div>
 
-
-
-
-    <!-- Hurray Page -->
-    <div class="hurray-container" id="hurrayContainer" style="display: none;">
-        <div class="trophy-wrapper">
-            <img class="trophyStar" src="./images/winningstar.png">
-            <img class="trophyCup" src="./images/winningcup.png">
-            
-        </div>
-        <h1>HURRAY!!</h1>
-        <p>YOU WON THE GAME</p>
-        <button id="playAgainFromHurray">PLAY AGAIN</button>
+  <!-- result -->
+  <div class="result-container" id="resultContainer" style="display:none;">
+    <div class="picked">
+      <h3>YOU PICKED</h3>
+      <div class="choice result-choice" id="user-picked"></div>
     </div>
 
+    <div class="result-message">
+      <h2 id="result-text">RESULT HERE</h2>
+      <button id="playAgainBtn">PLAY AGAIN</button>
+    </div>
 
-    
+    <div class="picked">
+      <h3>PC PICKED</h3>
+      <div class="choice result-choice" id="pc-picked"></div>
+    </div>
+  </div>
 
+  <!-- footer buttons -->
+  <div class="footer-buttons">
+    <button class="next-btn" id="nextBtn" style="display:none;">NEXT</button>
+    <button class="rules-btn" id="rulesBtn">RULES</button>
+  </div>
 
+  <!-- rules box -->
+  <div class="rules-box" id="rulesBox" style="display:none;">
+    <div class="rules-header">
+      <h2>Game Rules</h2>
+      <span class="close-btn" id="closeBtn">&times;</span>
+    </div>
+    <ul>
+      <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+      <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+      <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time.</li>
+      <li>If both players lay down the same hand, each player lays down another hand.</li>
+    </ul>
+  </div>
 
+  <!-- hurray page -->
+  <div class="hurray-container" id="hurrayContainer" style="display:none;">
+    <div class="trophy-wrapper">
+      <img class="trophyStar" src="./images/winningstar.png" alt="star">
+      <img class="trophyCup" src="./images/winningcup.png" alt="cup">
+    </div>
+    <h1>HURRAY!!</h1>
+    <p>YOU WON THE GAME</p>
+    <button id="playAgainFromHurray">PLAY AGAIN</button>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script src="app.js"></script>
-
-
-
-
-
+  <!-- App script (defer ensures DOM exists) -->
+  <script src="./app.js" defer></script>
 </body>
-
 </html>

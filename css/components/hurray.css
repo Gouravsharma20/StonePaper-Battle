@@ -1,0 +1,80 @@
+.hurray-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    gap: 10px;
+    color: var(--color-white);
+    position: relative;
+    padding: 40px;
+}
+
+.trophy-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-medium);
+    width: 500px;
+    height: 400px;
+}
+
+.trophyStar {
+    position: absolute;
+    z-index: 2;
+    width: 700px;
+    height: auto;
+    padding-bottom: 200px;
+}
+
+.trophyCup {
+    position: absolute;
+    z-index: 1;
+    width: 250px;
+    height: auto;
+    padding-top: 120px;
+}
+
+.hurray-container h1 {
+    font-size: 4.5rem;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 8px;
+    color: var(--color-white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hurray-container p {
+    font-size: 2.5rem;
+    margin: 10px 0 40px 0;
+    font-weight: 500;
+    letter-spacing: 4px;
+    opacity: 0.95;
+}
+
+.hurray-container button {
+    background: var(--color-white);
+    color: #6B9C3C;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition-default);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.hurray-container button:hover {
+    background: var(--color-light-gray);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hurray-container button:active {
+    transform: scale(0.98);
+}
