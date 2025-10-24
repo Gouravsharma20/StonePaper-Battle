@@ -94,7 +94,6 @@
 
 
 @media (max-width: 480px) {
-  /* Reduce score board sizes */
   .score-board {
     gap: 12px;
   }
@@ -112,7 +111,6 @@
     font-size: 1.8rem;
   }
 
-  /* Reduce header padding */
   .header {
     padding: 12px 12px;
   }
@@ -140,7 +138,6 @@
     height: 70%;
   }
 
-  /* Reduce result choice circle sizes */
   .result-choice {
     width: 100px !important;
     height: 100px !important;
@@ -155,7 +152,6 @@
     gap: 8px;
   }
 
-  /* Reduce result message */
   .result-message {
     max-width: 120px;
     gap: 8px;
@@ -173,7 +169,6 @@
     letter-spacing: 0.5px;
   }
 
-  /* Adjust result container spacing */
   .result-container {
     gap: 12px;
     padding: 16px;
@@ -202,8 +197,8 @@
 
   .rules-box {
     position: fixed;
-    bottom:2% ;
-    left: 55%;
+    bottom: -3%; ;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 90vw;
     max-width: 280px;
