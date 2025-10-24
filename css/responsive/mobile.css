@@ -180,9 +180,13 @@
   }
 
   .footer-buttons {
-    bottom: 15px;
+    position: fixed;
+    bottom: 20px;
     right: 15px;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
+    z-index: 50;
   }
 
   .rules-btn,
@@ -190,6 +194,9 @@
     padding: 8px 12px;
     font-size: 0.75rem;
     min-width: 85px;
+    position: relative;
+    bottom:auto;
+    right:auto;
   }
 
 
